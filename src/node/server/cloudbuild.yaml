@@ -5,3 +5,6 @@ steps:
 - name: 'gcr.io/cloud-builders/npm'
   args: ['test']
   dir: 'src/node/server'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/sum_server', 'src/node/server']
+images: ['gcr.io/$PROJECT_ID/sum_server']
